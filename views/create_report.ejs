@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- styles -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/ext.css" />
+    <title><%= title %></title>
+  </head>
+  <body class="d-flex flex-column">
+    <main class="flex-shrink-0">
+      <!-- Navigation-->
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top"
+        style="z-index: 1000; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5)"
+      >
+        <div class="container px-5">
+          <a class="navbar-brand" href="/"
+            ><span class="fw-bolder text-primary">MedBay</span></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+              <li class="nav-item px-2">
+                <a class="nav-link" href="/users/v/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item dropdown px-2">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="reportsDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Reports
+                </a>
+                <div class="dropdown-menu" aria-labelledby="reportsDropdown">
+                  <a class="dropdown-item" href="#">Create Report</a>
+                  <a class="dropdown-item" href="/users/v/report/mine"
+                    >My Reports</a
+                  >
+                  <a class="dropdown-item" href="/users/v/report/fetch"
+                    >Find Report</a
+                  >
+                  <a class="dropdown-item" href="/users/v/report/all"
+                    >All Reports</a
+                  >
+                </div>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link" href="/users/v/profile">Profile</a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </li>
+              <li class="nav-item px-2">
+                <form action="/" method="post">
+                  <button class="btn btn-danger">Logout</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Page content-->
+      <div class="clearance" style="height: 80px"></div>
+      <section class="py-5">
+        <div class="container px-5">
+          <!-- Create Report form-->
+          <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+            <div class="text-center mb-5">
+              <div
+                class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"
+              >
+                <i class="bi bi-envelope"></i>
+              </div>
+              <h1 class="fw-bolder">Create Report</h1>
+              <p class="lead fw-normal text-muted mb-0">All fields required!</p>
+            </div>
+            <div class="row gx-5 justify-content-center">
+              <div class="col-lg-8 col-xl-6">
+                <form id="contactForm" method="post">
+                  <!-- Name input -->
+                  <div class="form-floating mb-3">
+                    <input
+                      class="form-control"
+                      id="patientName"
+                      type="text"
+                      name="patientName"
+                      placeholder="Patient Name"
+                      required
+                    />
+                    <label for="patientName">Patient Name</label>
+                  </div>
+                  <!-- Age input-->
+                  <div class="form-floating mb-3">
+                    <input
+                      class="form-control"
+                      id="age"
+                      type="number"
+                      name="age"
+                      placeholder="18"
+                      required
+                    />
+                    <label for="age">Age</label>
+                  </div>
+                  <!-- Hospital input-->
+                  <div class="form-floating mb-3">
+                    <input
+                      class="form-control"
+                      id="hospitalName"
+                      type="text"
+                      name="hospitalName"
+                      placeholder="MedBay"
+                      required
+                    />
+                    <label for="hospitalName">Hospital Name</label>
+                  </div>
+                  <!-- Weight Input -->
+                  <div class="form-floating mb-3">
+                    <input
+                      class="form-control"
+                      id="weight"
+                      type="text"
+                      name="weight"
+                      placeholder="Weight"
+                      required
+                    />
+                    <label for="weight">Weight</label>
+                  </div>
+                  <!-- Height Input -->
+                  <div class="form-floating mb-3">
+                    <input
+                      class="form-control"
+                      id="height"
+                      type="text"
+                      name="height"
+                      placeholder="Height"
+                      required
+                    />
+                    <label for="height">Height</label>
+                  </div>
+                  <!-- Blood Group Input -->
+                  <div class="form-floating mb-3">
+                    <input
+                      class="form-control"
+                      id="bloodGroup"
+                      type="text"
+                      name="bloodGroup"
+                      placeholder="Blood Group"
+                      required
+                    />
+                    <label for="bloodGroup">Blood Group</label>
+                  </div>
+                  <!-- Genotype Input -->
+                  <div class="form-floating mb-3">
+                    <input
+                      class="form-control"
+                      id="genotype"
+                      type="text"
+                      name="genotype"
+                      placeholder="Genotype"
+                      required
+                    />
+                    <label for="genotype">Genotype</label>
+                  </div>
+                  <!-- Blood Pressure Input -->
+                  <div class="form-floating mb-3">
+                    <input
+                      class="form-control"
+                      id="bloodPressure"
+                      type="text"
+                      name="bloodPressure"
+                      placeholder="Blood Pressure"
+                      required
+                    />
+                    <label for="bloodPressure">Blood Pressure</label>
+                  </div>
+                  <!-- HIV Input -->
+                  <div class="form-floating mb-3">
+                    <select
+                      class="form-control"
+                      id="HIV_Status"
+                      name="HIV_Status"
+                      required
+                    >
+                      <option value="negative">Negative</option>
+                      <option value="positive">Positive</option>
+                    </select>
+                    <label for="HIV_Status">HIV Status</label>
+                  </div>
+                  <!-- Hepatitis input -->
+                  <div class="form-floating mb-3">
+                    <input
+                      class="form-control"
+                      id="hepatitis"
+                      type="text"
+                      name="hepatitis"
+                      placeholder="Hepatitis"
+                      required
+                    />
+                    <label for="hepatitis">Hepatitis</label>
+                  </div>
+
+                  <div class="d-grid">
+                    <button
+                      class="btn btn-primary btn-lg"
+                      id="submitButton"
+                      type="submit"
+                    >
+                      Create Report
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer-->
+    <footer class="bg-white py-4 mt-auto">
+      <div class="container px-5">
+        <div
+          class="row align-items-center justify-content-between flex-column flex-sm-row"
+        >
+          <div class="col-auto">
+            <div class="small m-0">Copyright &copy; MedBay 2023</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  </body>
+</html>
